@@ -6,10 +6,10 @@ import axios from "axios";
 function Invoice() {
   const [amount, setAmount] = useState("");
   const location = (useLocation().search).replace('?','')
-  
+  const navigate=useNavigate()
 
   const customer = location.split('=')[1];
-  console.log(customer)
+
   const description = "2-for-1 promo";
   // console.log(customer)
   const makePayment = async (form) => {
@@ -42,17 +42,23 @@ function Invoice() {
       }
     } catch (err) {
       console.log(err)
-      console.log(customer)
     }
   };
 
   return (
     <div className="App" >
-      <div className="checkout-field">
-        <p>{customer}</p>
+      <div className="checkout-field" style={{marginTop: '100px'}}>
+       
+       <div style={{marginBottom:"20px"}}>
+       <span style={{color:'black'}}>Customer Code:</span>
+        <span> {customer}</span>
 
+       </div>
+       
         <form action="">
+          <label htmlFor="">Amount</label>
           <select
+          style={{padding:"5px", marginLeft:'10px'}}
             name=""
             id=""
             onChange={(e) => {
@@ -66,8 +72,11 @@ function Invoice() {
             <option value="60000">60000</option>
           </select>
 
-          <p>{description}</p>
+         <div style={{marginTop:"20px", marginBottom:'20px'}}>
+         <span style={{color:'black'}}>Description:</span> <span>{description}</span>
 
+         </div>
+      
           <button onClick={makePayment}>Create Invoice</button>
         </form>
       </div>
