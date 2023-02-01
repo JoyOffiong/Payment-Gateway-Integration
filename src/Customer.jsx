@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 const Transfer = () => {
 
@@ -7,7 +8,7 @@ const Transfer = () => {
     const [first_name, setFirst_Name] = useState("")
     const [last_name, setLast_Name] = useState("")
   const [phone, setPhone] = useState("")
-
+const navigate = useNavigate()
 
   const submit = async () => {
 
@@ -18,6 +19,7 @@ const Transfer = () => {
         email,
         first_name,
         last_name,
+        phone,
       },
      
      {headers:{
@@ -30,11 +32,14 @@ const Transfer = () => {
       console.log(res.email);
 
       localStorage.setItem("email", JSON.stringify(res.email));
+      localStorage.setItem("lastname",last_name);
+      localStorage.setItem("firstname", first_name);
+      localStorage.setItem("phone", phone);
       localStorage.setItem("customer_code", JSON.stringify(res.customer_code));
 
     //   notifySuccess();
-
-    //   navigate("/questions");
+      alert("Customer Successfully Created")
+      navigate(`../Invoice?customer=${res.customer_code}`);
     } catch (err) {
         console.log(err)
     }

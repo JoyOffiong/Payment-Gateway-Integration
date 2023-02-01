@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { PaystackButton } from "react-paystack"
-import oil from './src/assets/shopping.png'
+import oil from './assets/shopping.png'
 
 const Payment = () => {
   const publicKey = "pk_test_50026f4b6d90461f96d53c9067cd64375d23c861"
