@@ -1,12 +1,11 @@
 import React, {useState} from "react";
-import "./payment.css";
+import "./Payment.css";
 import { useNavigate } from "react-router";
 import axios from "axios";
 
 function Button() {
   const [email, setEmail] = useState("")
   const navigate = useNavigate();
-  const [infos, setinfos]= useState(false)
 
   // const createInvoice= ()=>{
 
@@ -38,27 +37,6 @@ function Button() {
 
 
   };
-
-// const mailExist = async ()=>{
-// try {
-//  const email= await localStorage.getItem('email')
-//  const first_name= await localStorage.getItem('firstname')
-//   const last_name= await localStorage.getItem('lastname')
-//   const tokens= await localStorage.getItem('tokens')
-
-// if (email&&first_name&&last_name&&tokens) {
-//   setinfos(true)
-//   navigate('./Invoice')
-// }
-// } catch (error) {
-//   console.log(error)
-// }}
-
-// useEffect(() => {
-//   mailExist()
-//   }
-// , [])
-
 
   return (
 
