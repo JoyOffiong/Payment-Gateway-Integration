@@ -47,10 +47,8 @@ function Invoice() {
 
   return (
     <div className="App" >
-       <div className="header">
-      <Link to={"/Payment"}>MAKE PAYMENT</Link>
-      <Link to={"/Button"}>Generate Invoice</Link>
-      </div>
+       
+      
       <div className="checkout-field" style={{marginTop: '100px'}}>
        
        <div style={{marginBottom:"20px"}}>
