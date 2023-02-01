@@ -1,13 +1,13 @@
-import React, { useState } from "react"
-import { PaystackButton } from "react-paystack"
-import oil from './assets/shopping.png'
+import React, { useState } from "react";
+import { PaystackButton } from "react-paystack";
+import oil from "./assets/shopping.png";
 
 const Payment = () => {
-  const publicKey = "pk_test_50026f4b6d90461f96d53c9067cd64375d23c861"
-  const amount = 1000000
-  const [email, setEmail] = useState("")
-  const [name, setName] = useState("")
-  const [phone, setPhone] = useState("")
+  const publicKey = "pk_test_50026f4b6d90461f96d53c9067cd64375d23c861";
+  const [amount, setAmount] = useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
 
   const componentProps = {
     email,
@@ -21,48 +21,67 @@ const Payment = () => {
     onSuccess: () =>
       alert("Thanks for doing business with us! Come back soon!!"),
     onClose: () => alert("Wait! Don't leave :("),
-  }
+  };
 
   return (
     <div className="App">
       <div className="container">
         <div className="item">
-          <img  className="item-image" src={oil} alt=""/>
+          <img className="item-image" src={oil} alt="" />
           <div className="item-details">
             <p>Dancing Shoes</p>
-            <p>{amount}</p>
           </div>
         </div>
         <div className="checkout-form">
-  <div className="checkout-field">
-    <label>Name</label>
-    <input
-      type="text"
-      id="name"
-      onChange={(e) => setName(e.target.value)}
-    />
-  </div>
-  <div className="checkout-field">
-    <label>Email</label>
-    <input
-      type="text"
-      id="email"
-      onChange={(e) => setEmail(e.target.value)}
-    />
-  </div>
-  <div className="checkout-field">
-    <label>Phone</label>
-    <input
-      type="text"
-      id="phone"
-      onChange={(e) => setPhone(e.target.value)}
-    />
-  </div>
-  <PaystackButton className="paystack-button" {...componentProps} />
-</div>
+          <div className="checkout-field">
+            <label>Name</label>
+            <input
+              type="text"
+              id="name"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="checkout-field">
+            <label>Email</label>
+            <input
+              type="text"
+              id="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="checkout-field">
+            <label>Phone</label>
+            <input
+              type="text"
+              id="phone"
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
+
+          <div className="checkout-field">
+            <label>Amount</label>
+
+            <select
+              name=""
+              id=""
+              style={{ padding: "10px" }}
+              onChange={(e) => setAmount(e.target.value)}
+            >
+              <option value="20000">20000</option>
+              <option value="40000">40000</option>
+              <option value="50000">50000</option>
+              <option value="60000">60000</option>
+            </select>
+          </div>
+          <PaystackButton
+            className="paystack-button"
+            style={{ marginTop: "0px" }}
+            {...componentProps}
+          />
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Payment
+export default Payment;
