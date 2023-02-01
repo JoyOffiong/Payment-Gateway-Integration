@@ -23,6 +23,14 @@
   position: relative;
 }
 
+.header{
+  position: fixed;
+ 
+  width: 100%;
+  display: flex;
+
+}
+
 .item-image {
   height: 430px;
   width: 100%;
@@ -60,7 +68,6 @@
 
 .checkout {
   background: #84a17d; /* fallback for old browsers */
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -109,4 +116,15 @@
   width: 100%;
   height: 45px;
   margin-top: 0px;
+}
+
+@media(max-width:750px){
+  .container {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .item {
+   display: none;
+  }
 }

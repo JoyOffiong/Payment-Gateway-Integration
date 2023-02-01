@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
+import oil from '../src/assets/shopping.png'
 import { useNavigate } from "react-router";
 
 const Transfer = () => {
@@ -49,6 +50,14 @@ const navigate = useNavigate()
   return (
     <div className="App">
       <div className="container">
+
+      <div className="item">
+          <img className="item-image" src={oil} alt="" />
+          <div className="item-details">
+            <p>Dancing Shoes</p>
+          </div>
+        </div>
+
         <div className="checkout-form">
           <div className="checkout-field">
             <label> First Name</label>

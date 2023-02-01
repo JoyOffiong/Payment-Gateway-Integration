@@ -21,10 +21,13 @@ const Payment = () => {
     onSuccess: () =>
       alert("Thanks for doing business with us! Come back soon!!"),
     onClose: () => alert("Wait! Don't leave :("),
+
+    
   };
 
   return (
     <div className="App">
+      
       <div className="container">
         <div className="item">
           <img className="item-image" src={oil} alt="" />
@@ -32,6 +35,8 @@ const Payment = () => {
             <p>Dancing Shoes</p>
           </div>
         </div>
+
+        <div className="checkout">
         <div className="checkout-form">
           <div className="checkout-field">
             <label>Name</label>
@@ -79,6 +84,8 @@ const Payment = () => {
             {...componentProps}
           />
         </div>
+        </div>
+       
       </div>
     </div>
   );

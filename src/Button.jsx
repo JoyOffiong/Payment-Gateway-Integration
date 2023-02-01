@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./Payment.css";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Button() {
   const [email, setEmail] = useState("")
@@ -39,8 +40,11 @@ function Button() {
   };
 
   return (
+<>
 
     <div className="App" style={{marginTop:"20px"}}>
+
+ 
 
       <div style={{backgroundColor:'#3b3b3b', padding:"20px"}}>
       <form action="">
@@ -62,6 +66,7 @@ function Button() {
       </div>
       
     </div>
+    </>
   );
 }
 
