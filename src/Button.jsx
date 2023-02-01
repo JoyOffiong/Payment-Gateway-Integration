@@ -48,7 +48,7 @@ function Button() {
 
       <div style={{backgroundColor:'#3b3b3b', padding:"20px"}}>
       <form action="">
-        <input type="email" name="" id="" style={{ backgroundColor:"#e5e5e5", padding:"10px", borderRadius:'20px', border:"none"}}
+        <input type="email" name="" id="" style={{ backgroundColor:"#0000", padding:"10px", borderRadius:'20px', border:"none"}}
         placeholder="Enter Email Address Here"
          onChange={(e) => setEmail(e.target.value)}/>
       </form>
