@@ -38,7 +38,7 @@ function Invoice() {
       if (response) {
         // navigate(`./Payment?amount=${amount}`)
         alert("Kindly Check your email for Invoice")
-        navigate("./");
+        navigate("/");
       }
     } catch (err) {
       console.log(err)

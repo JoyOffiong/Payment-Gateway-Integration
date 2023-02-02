@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "./Payment.css";
 import { useNavigate } from "react-router";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
 
 function Button() {
   const [email, setEmail] = useState("")
@@ -28,7 +28,7 @@ function Button() {
       const customer = result.data.data.customer_code
 
     if (result) {
-      navigate(`./Invoice?customer=${customer}`);
+      navigate(`../Invoice?customer=${customer}`);
     }
      
       console.log("worked");
@@ -57,6 +57,7 @@ function Button() {
         
       </div>
       <button style={{fontSize:"12px", marginTop:"20px"}}
+      
         onClick={() => {
           checkCustomerExists(email);
         }}

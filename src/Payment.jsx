@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { PaystackButton } from "react-paystack";
 import oil from "./assets/shopping.png";
+import { useNavigate } from "react-router";
 
 const Payment = () => {
   const publicKey = "pk_test_50026f4b6d90461f96d53c9067cd64375d23c861";
@@ -9,6 +10,7 @@ const Payment = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
 
+  const navigate = useNavigate()
   const componentProps = {
     email,
     amount,
@@ -20,11 +22,17 @@ const Payment = () => {
     text: "Pay Now",
     onSuccess: () =>
       alert("Thanks for doing business with us! Come back soon!!"),
-    onClose: () => alert("Wait! Don't leave :("),
+      // navigate('./'),
+      onClose: () => alert("Wait! Don't leave :("),
+   
+   
 
     
   };
-
+  
+const back =()=>{
+navigate('/')
+}
   return (
     <div className="App">
       
@@ -82,6 +90,7 @@ const Payment = () => {
             className="paystack-button"
             style={{ marginTop: "0px" }}
             {...componentProps}
+            
           />
         </div>
         </div>
