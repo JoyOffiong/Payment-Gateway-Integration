@@ -1,24 +1,163 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Button from "./Button";
+import React, { useState } from "react";
+import { PaystackButton } from "react-paystack";
+import boots from "./assets/boots.jpeg";
+import { useNavigate } from "react-router";
+// import { Link } from "react-router-dom";
+// import Button from "./Button";
 
 function Home() {
+
+    const publicKey = "pk_test_50026f4b6d90461f96d53c9067cd64375d23c861";
+    // const [amount, setAmount] = useState("");
+    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
+    const [phone, setPhone] = useState("");
+    const amount=5000000
+    const navigate = useNavigate()
+    const componentProps = {
+      email,
+      amount,
+    
+      metadata: {
+        name,
+        phone,
+      },
+      publicKey,
+      text: "Pay Now",
+      onSuccess: () =>
+        alert("Thanks for doing business with us! Come back soon!!"),
+        // navigate('./'),
+        onClose: () => alert("Wait! Don't leave :("),
+     
+     
+  
+      
+    };
+    
+  
+    // const createInvoice= ()=>{
+  
+    // }
+  
+    const checkCustomerExists = async (email_or_code) => {
+      try {
+        const result = await axios.get(
+          `https://api.paystack.co/customer/${email_or_code}`,
+  
+          {
+            headers: {
+              Authorization:
+                "Bearer " + "sk_test_b67c74ff0ca0c976a02d9689b30d5ecb7f04398f",
+            },
+          }
+        );
+        // console.log(result.data)
+        const customer = result.data.data.customer_code
+  
+      if (result) {
+        navigate(`../Invoice?customer=${customer}`);
+      }
+       
+        console.log("worked");
+      } catch (error) {
+        navigate("./Customer");
+      }
+  
+  
+    };
+
+
+
+
+
   return (
     <>
    
       <div className="App">
+            <div className="heading">
+            <h3 className="logo">Blaqkly</h3>
+            <span>Your one stop Shop for every Piece of Luxury</span>
+            </div>
+
+      <div className="container">
+        <div className="item">
         
-
-        <div className="checkout_field" style={{ gap: "50px" }}>
-          <Button />
-
-          <div style={{ marginTop: "40px" }}>
-            <button>
-              <Link to={"/Payment"}>MAKE PAYMENT</Link>
-            </button>
+          <img className="item-image" src='https://media.istockphoto.com/id/1359011668/photo/woman-holding-in-hands-black-leather-female-boots-in-box-isolated-on-gray-background-copy.jpg?s=612x612&w=0&k=20&c=npH67ILZiLjNowvJ3hXmzZDD3wLIbTdEXPVZ9xOJXUs=' alt="" />
+          <div className="item-details">
+            <p>Dancing Shoes</p>
           </div>
         </div>
+
+        <div className="checkout">
+        <div className="checkout-form">
+          <div className="checkout-field">
+            <label>Name</label>
+            <input
+              type="text"
+              id="name"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="checkout-field">
+            <label>Email</label>
+            <input
+              type="text"
+              id="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="checkout-field">
+            <label>Phone</label>
+            <input
+              type="text"
+              id="phone"
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
+            
+          <div className="checkout-field">
+            <label>Amount</label>
+           <p style={{border:"1px solid white", borderRadius:"5px", padding:"7px", textAlign:"left" , marginTop:"2px"}}>{amount}</p>
+            
+          </div>
+          <PaystackButton
+            className="paystack-button"
+            style={{ marginTop: "0px" }}
+            {...componentProps}
+            
+          />
+        </div>
+        </div>
+       
       </div>
+
+       
+      </div>
+
+      <footer >
+        <h4>Would you rather Pay Later?
+            Quickly generate your Invoice Here: </h4>
+            <div style={{ padding:"20px"}}>
+      <form action="">
+        <input type="email" name="" id="" style={{ backgroundColor:"#e5e5e5", color:"black", padding:"10px", borderRadius:'20px', border:"none"}}
+        placeholder="Enter Email Address Here"
+         onChange={(e) => setEmail(e.target.value)} required/>
+      </form>
+
+      <div>
+        
+      </div>
+      <button style={{fontSize:"12px", marginTop:"20px"}}
+      
+        onClick={() => {
+          checkCustomerExists(email);
+        }}
+      >
+        Get Invoice
+      </button>
+      </div>
+       
+       </footer>
     </>
   );
 }

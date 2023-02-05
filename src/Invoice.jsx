@@ -4,11 +4,11 @@ import { useLocation } from "react-router";
 import axios from "axios";
 
 function Invoice() {
-  const [amount, setAmount] = useState("");
-  const location = (useLocation().search).replace('?','')
-  const navigate=useNavigate()
+  const location = useLocation().search.replace("?", "");
+  const amount = `${5000000 * 100}` ;
+  const navigate = useNavigate();
 
-  const customer = location.split('=')[1];
+  const customer = location.split("=")[1];
 
   const description = "2-for-1 promo";
   // console.log(customer)
@@ -37,52 +37,55 @@ function Invoice() {
 
       if (response) {
         // navigate(`./Payment?amount=${amount}`)
-        alert("Kindly Check your email for Invoice")
+        alert("Kindly Check your email for Invoice");
         navigate("/");
       }
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   };
 
   return (
-    <div className="App" >
-       
-      
-      <div className="checkout-field" style={{marginTop: '100px'}}>
-       
-       <div style={{marginBottom:"20px"}}>
-       <span style={{color:'black'}}>Customer Code:</span>
-        <span> {customer}</span>
 
-       </div>
-       
-        <form action="">
-          <label htmlFor="">Amount</label>
-          <select
-          style={{padding:"5px", marginLeft:'10px'}}
-            name=""
-            id=""
-            onChange={(e) => {
-              setAmount(e.target.value);
-            }}
-            required
-          >
-            <option value="20000">20000</option>
-            <option value="40000">40000</option>
-            <option value="50000">50000</option>
-            <option value="60000">60000</option>
-          </select>
+    <>
+    <div className="invoicePage">
+    <div className="App">
+       <div className="checkout invoice">
+        <div style={{lineHeight:"1px"}}>
+        <h5 className="logo2" >Blaqkly</h5>
+        </div>
+           <h3>Customer Invoice </h3>
+          <div className="div1">
+            <div className="title">
+              <h3>Customer Code:</h3>
+            </div>
+            <p>{customer}</p>
+          </div>
 
-         <div style={{marginTop:"20px", marginBottom:'20px'}}>
-         <span style={{color:'black'}}>Description:</span> <span>{description}</span>
+          <div className="div1">
+            <div className="title">
+              <h3>Amount</h3>
+            </div>
 
-         </div>
-      
-          <button onClick={makePayment}>Create Invoice</button>
-        </form>
-      </div>
+            <p>{amount}</p>
+          </div>
+
+          <div className="div1">
+            <div className="title">
+              <h3>Description</h3>
+            </div>
+
+            <p>{description}</p>
+          </div>
+
+          <button className="invoice-button" onClick={makePayment}>Create Invoice</button>
+        </div>
+   
     </div>
+    </div>
+    
+    </>
+   
   );
 }
 

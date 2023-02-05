@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
-import oil from '../src/assets/shopping.png'
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 
 const Transfer = () => {
@@ -48,18 +48,19 @@ const navigate = useNavigate()
   };
 
   return (
+
+    <>
+   
     <div className="App">
-      <div className="container">
+      <div className="container" style={{backgroundColor:"black"}}>
 
       <div className="item">
-          <img className="item-image" src={oil} alt="" />
-          <div className="item-details">
-            <p>Dancing Shoes</p>
-          </div>
+
+        <p className="Logo"> Blaqkly    </p>
         </div>
 
         <div className="checkout-form">
-          <div className="checkout-field">
+        <div className="checkout-field">
             <label> First Name</label>
             <input
               type="text"
@@ -99,6 +100,24 @@ const navigate = useNavigate()
         </div>
       </div>
     </div>
+    <footer >
+    <h4>Have you Reconsidered and want to pay now 😊? 
+    </h4>
+
+<button>
+<Link to={'/'}>Payments 😋 </Link>
+</button>
+ 
+        <div style={{ padding:"20px"}}>
+  
+
+  <div>
+    
+  </div>
+  </div>
+   
+   </footer>
+   </>
   );
 };
 
