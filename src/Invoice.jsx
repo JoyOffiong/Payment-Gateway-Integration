@@ -48,7 +48,6 @@ function Invoice() {
   return (
 
     <>
-    <div className="invoicePage">
     <div className="App">
        <div className="checkout invoice">
         <div style={{lineHeight:"1px"}}>
@@ -82,7 +81,7 @@ function Invoice() {
         </div>
    
     </div>
-    </div>
+   
     
     </>
    
