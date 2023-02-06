@@ -26,6 +26,7 @@ function Button() {
       );
       // console.log(result.data)
       const customer = result.data.data.customer_code
+      console.log(customer)
 
     if (result) {
       navigate(`../Invoice?customer=${customer}`);
@@ -33,7 +34,8 @@ function Button() {
      
       console.log("worked");
     } catch (error) {
-      navigate("./Customer");
+    //   navigate("./Customer");
+      console.log(err)
     }
 
 

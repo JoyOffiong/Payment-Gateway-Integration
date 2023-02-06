@@ -12,11 +12,11 @@ function Home() {
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
-    const amount=5000000
+    const amount=50000 
     const navigate = useNavigate()
     const componentProps = {
       email,
-      amount,
+      amount:amount*100,
     
       metadata: {
         name,
