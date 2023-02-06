@@ -50,8 +50,7 @@ const navigate = useNavigate()
   return (
 
     <>
-   
-    <div className="App">
+  <div className="App">
       <div className="container" style={{backgroundColor:"black"}}>
 
       <div className="item">
@@ -117,6 +116,7 @@ const navigate = useNavigate()
   </div>
    
    </footer>
+    
    </>
   );
 };

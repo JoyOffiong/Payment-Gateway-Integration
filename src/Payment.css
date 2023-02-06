@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap");
 
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Syne:wght@400;600&display=swap');
 .heading{
     color: #000;
     line-height: 0px;
+    font-family: 'Syne', sans-serif;
 }
 .heading h3{
     font-size: 50px;
@@ -100,6 +101,7 @@
     padding-left: 70px;
     padding-top: 100px;
     font-style: italic;
+    font-family: 'Syne', sans-serif;
 }
 .logo{
     font-size: 50px;
@@ -192,6 +194,7 @@ footer{
     text-align: center;
     margin: 0;
     
+    
 }
 footer h4{
     margin-top: 2%;
@@ -211,9 +214,13 @@ footer h4{
   .container {
     display: flex;
     flex-direction: column;
+    width: 100%;
     
   }
   .item {
    display: none;
   }
+  .heading{
+    line-height:15px;
+}
 }
