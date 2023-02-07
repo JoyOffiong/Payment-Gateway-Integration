@@ -50,6 +50,9 @@ const navigate = useNavigate()
   return (
 
     <>
+
+
+  <div style={{height:"100vh"}}>
   <div className="App">
       <div className="container" style={{backgroundColor:"black"}}>
 
@@ -103,19 +106,15 @@ const navigate = useNavigate()
     <h4>Have you Reconsidered and want to pay now 😊? 
     </h4>
 
+<div style={{paddingBottom:"30px"}}>
 <button>
 <Link to={'/'}>Payments 😋 </Link>
 </button>
- 
-        <div style={{ padding:"20px"}}>
-  
+</div>
 
-  <div>
-    
-  </div>
-  </div>
    
    </footer>
+  </div>
     
    </>
   );
