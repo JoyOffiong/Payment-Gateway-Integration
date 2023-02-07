@@ -5,7 +5,7 @@ import axios from "axios";
 
 function Invoice() {
   const location = useLocation().search.replace("?", "");
-  const amount = `${5000000 * 100}` ;
+  const amount = 50000 ;
   const navigate = useNavigate();
 
   const customer = location.split("=")[1];
