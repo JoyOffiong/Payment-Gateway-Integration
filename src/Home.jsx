@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { PaystackButton } from "react-paystack";
+import axios from "axios";
 import boots from "./assets/boots.jpeg";
 import { useNavigate } from "react-router";
 // import { Link } from "react-router-dom";
@@ -46,20 +47,23 @@ function Home() {
   
           {
             headers: {
-              Authorization:
-                "Bearer " + "sk_test_b67c74ff0ca0c976a02d9689b30d5ecb7f04398f",
+                Authorization:
+                "Bearer sk_test_b67c74ff0ca0c976a02d9689b30d5ecb7f04398f",
+                "Content-Type": "application/json"
             },
           }
+          
         );
-        // console.log(result.data)
+        console.log(result)
         const customer = result.data.data.customer_code
-  
-      if (result) {
+          console.log(customer)
+      if (customer) {
         navigate(`../Invoice?customer=${customer}`);
       }
        
         console.log("worked");
       } catch (error) {
+        console.log(error)
         navigate("./Customer");
       }
   
@@ -149,9 +153,7 @@ function Home() {
       </div>
       <button style={{fontSize:"12px", marginTop:"20px"}}
       
-        onClick={() => {
-          checkCustomerExists(email);
-        }}
+        onClick={()=>{checkCustomerExists(email)}}
       >
         Get Invoice
       </button>

@@ -19,7 +19,7 @@ function Invoice() {
         "https://api.paystack.co/paymentrequest",
         {
           customer,
-          amount,
+          amount: amount*100,
           description,
         },
 

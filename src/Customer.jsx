@@ -32,12 +32,6 @@ const navigate = useNavigate()
         let res= response.data.data
       console.log(res.email);
 
-      localStorage.setItem("email", JSON.stringify(res.email));
-      localStorage.setItem("lastname",last_name);
-      localStorage.setItem("firstname", first_name);
-      localStorage.setItem("phone", phone);
-      localStorage.setItem("customer_code", JSON.stringify(res.customer_code));
-
     //   notifySuccess();
       alert("Customer Successfully Created")
       navigate(`../Invoice?customer=${res.customer_code}`);
